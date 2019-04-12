@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-04-12T17:14:45.844Z",
+    "end": "2019-04-12T17:15:08.026Z",
+    "duration": 22182,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "dc43b67b-7344-4386-8200-8f3e3e2e3d93",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [
+      {
+        "title": "\"before all\" hook",
+        "fullTitle": "\"before all\" hook",
+        "timedOut": false,
+        "duration": 1124,
+        "pass": false,
+        "fail": false,
+        "pending": false,
+        "code": "global.expect = expect;\nglobal.browser = await puppeteer.launch(opts);",
+        "err": {},
+        "isRoot": true,
+        "uuid": "9ba37d29-cb4e-4d91-b264-4ab8e6f5f05a",
+        "isHook": true,
+        "skipped": false
+      }
+    ],
+    "afterHooks": [
+      {
+        "title": "\"after all\" hook",
+        "fullTitle": "\"after all\" hook",
+        "timedOut": false,
+        "duration": 244,
+        "pass": false,
+        "fail": false,
+        "pending": false,
+        "code": "browser.close();\nglobal.browser = globalVariables.browser;\nglobal.expect = globalVariables.expect;",
+        "err": {},
+        "isRoot": true,
+        "uuid": "784dd136-4530-4c98-b245-b69a33d2457e",
+        "isHook": true,
+        "skipped": false
+      }
+    ],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "0529e9e0-3be7-4cff-bffd-47f1e53a8a3e",
+        "title": "Logs in to the application",
+        "fullFile": "/Users/zac/Documents/puppeteer-docker-example/test/index.js",
+        "file": "/test/index.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should log in to the application",
+            "fullTitle": "Logs in to the application should log in to the application",
+            "timedOut": false,
+            "duration": 20803,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "let page = await browser.newPage();\nawait page.setViewport({ width: 1440, height: 900 });\nawait page.goto('https://github.com');\nawait page.screenshot({ path: 'screenshots/github.png' });\nawait page.goto('https://github.com/login');\nawait page.click(USERNAME);\nawait page.keyboard.type(creds.username);\nawait page.click(PASSWORD);\nawait page.keyboard.type(creds.password);\nawait page.click(LOGIN_BTN);\n//await page.waitForNavigation();\nawait page.goto(\"https://github.com/trending\");\nawait page.waitFor(5 * 1000);\nconst data = await page.evaluate(() => {\n    const exctactedData = [];\n    for (const entry of document.querySelectorAll('ol.repo-list > li')) {\n        exctactedData.push(`${\n            entry.querySelector('h3').innerText\n            } has ${\n            entry.querySelector('a[href$=\"/stargazers\"]').innerText.trim()\n            } stars.`);\n    }\n    return exctactedData.join('\\n');\n});\nconsole.log(`The top repositories are ${data}`);\nawait addContext(this, {\n    title:\"This is title\" ,\n    value: `{data}`\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "e1746e5a-e709-411e-8b45-b3584f253cdb",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "e1746e5a-e709-411e-8b45-b3584f253cdb"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 20803,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 50000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 50000
+  },
+  "copyrightYear": 2019
+}

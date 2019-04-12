@@ -1,0 +1,30 @@
+{
+  "name": "puppeteer-docker-example",
+  "version": "1.0.0",
+  "description": "Puppeteer Docker example",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/bootstrap.js --recursive test --reporter mochawesome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zac11/puppeteer-docker-example.git"
+  },
+  "keywords": [
+    "Puppeteer",
+    "Docker"
+  ],
+  "author": "RY <ydv.rahul09@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zac11/puppeteer-docker-example/issues"
+  },
+  "homepage": "https://github.com/zac11/puppeteer-docker-example#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.1.3",
+    "mochawesome": "^3.1.1",
+    "puppeteer": "^1.14.0"
+  }
+}
